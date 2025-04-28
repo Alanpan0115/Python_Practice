@@ -86,3 +86,32 @@ def a7_function(a):
     print('Q7.',L77)
 L7 = [1,2,3,4]
 a7_function(L7)
+
+# ----------------------------------------------------------------
+# 8. 找最長字串
+# 給定一個字串列表，找出最長的那個字串。
+# （例：["hi", "hello", "world"] → "hello"）
+
+def a8_function(a):
+    max_length=len(a[0])
+    for i in a :
+        if len(i)>max_length:
+            max_length=len(i)
+    print('Q8. 最長字串為 :',i,'共有',max_length,'個字')
+L8 = ['aaaa','bbbbb','acac','ccccccccc','ddddddddddd']
+a8_function(L8)
+    
+# ----------------------------------------------------------------
+# 9. 判斷質數列表
+# 寫一個函式，輸入一個數字列表，回傳其中所有的質數（prime number）。
+# （例：[2,3,4,5,6] → [2,3,5]）
+
+def a9_function(a):
+    L99 = []
+    for i in a:
+        if i > 1 and all(i % j != 0 for j in range(2, int(i ** 0.5) + 1)):  # 檢查是否為質數
+            L99.append(i)
+    print('Q9', L99)
+
+L9 = [2, 5, 9, 3, 6, 7, 11, 12, 17]
+a9_function(L9)
