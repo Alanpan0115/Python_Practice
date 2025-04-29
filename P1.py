@@ -115,3 +115,68 @@ def a10_function(a):
 a10_List = [11,2,6,8,9,20,36,77,1,7,99]
 a10_function(a10_List)
     
+# ----------------------------------------------------------------  
+# 11. 英文字母計數
+# 輸入一個字串，統計裡面英文字母 (a-z, A-Z) 出現了幾次。（忽略其他符號）
+
+def a11_function(a):
+    a11_dic={}
+    for i in a:
+        if i.isalpha(): # 只統計英文字母
+            if i in a11_dic:
+                a11_dic[i]+=1
+            else:
+                a11_dic[i]=1
+    print('Q11. ',end='')
+    print(a11_dic)
+a11 = 'af1a1f5a13fasd2svd,oqmd1ojfiamdamvjmflamcladd5w4d8a1315vefiaj,d'
+a11_function(a11)
+    
+# ----------------------------------------------------------------  
+# 12. 檢查兩個字串是否為「異位詞」
+# 兩個字串如果重新排列後一樣，叫異位詞（anagram），寫一個函式來檢查。
+# （例："listen" 和 "silent" 是異位詞）
+
+def a12_function(a,b):
+    a_dic={}
+    b_dic={}
+    for i in a:
+        if i.isalpha(): # 只統計英文字母
+            if i in a_dic:
+                a_dic[i]+=1
+            else:
+                a_dic[i]=1
+    for i in b:
+        if i.isalpha(): # 只統計英文字母
+            if i in b_dic:
+                b_dic[i]+=1
+            else:
+                b_dic[i]=1
+    if a_dic == b_dic:
+        print('Q12. a、b是異位詞')
+    else:
+        print('Q12. a、b並非異位詞')
+
+    # 直接分類後比較最快        
+    # if sorted(a) == sorted(b):
+    #     print('Q12. a、b是異位詞')
+    # else:
+    #     print('Q12. a、b並非異位詞')
+a= 'listen' 
+b= 'silent'
+a12_function(a,b)
+
+# ----------------------------------------------------------------  
+# 13. 移除列表中的重複元素
+# 寫一個函式，輸入一個列表，回傳一個移除重複元素的新列表。
+# （提示：可以用 set() 或自己寫迴圈）
+
+def a13_function(a):
+    a13 =[]
+    for i in a :
+        if i not in a13:
+            a13.append(i)
+    print(a13)
+a13_list = [1,2,53,8,1,3,94,13,2,15,46,1,68,144,2,62,42,663,74,22,61,144,216,46,8,53,11]
+a13_function(a13_list)
+    
