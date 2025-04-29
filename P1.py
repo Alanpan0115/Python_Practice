@@ -209,3 +209,36 @@ a15_function(a15)
 
 # a15 = [1, 8, 2, 6, 3]   # ❌ 否
 # a15_function(a15)
+
+# ----------------------------------------------------------------  
+# 16. 判斷年份是否為閏年
+# 輸入一個年份，判斷它是不是閏年。（閏年的規則是：能被4整除但不能被100整除，或者能被400整除）
+
+def a16_function(a):
+    if (a%4 ==0 and a%100!=0) or a%400==0:
+        print('Q16.',a,'為閏年')
+    else:
+        print('Q16.',a,'不為閏年')
+a16_function(2020)
+
+# ----------------------------------------------------------------  
+# 17. 將字串每個字母後移一位
+# 輸入一個字串，把每個英文字母往後移動一位（z變成a）。
+# （例："abc" → "bcd"，"xyz" → "yza"）
+def a17_function(a):
+    result = ''
+    for ch in a:
+        if ch.isalpha():  # 只處理英文字母
+            if ch == 'z':
+                result += 'a'
+            elif ch == 'Z':
+                result += 'A'
+            else:
+                result += chr(ord(ch) + 1)
+        else:
+            result += ch  # 其他符號照原樣保留
+    print('Q17.', result)
+
+a17_function('abc')      # Q17. bcd
+a17_function('xyzXYZ')   # Q17. yzaYZA
+a17_function('hello!')   # Q17. ifmmp!
