@@ -106,12 +106,35 @@ a8_function(L8)
 # 寫一個函式，輸入一個數字列表，回傳其中所有的質數（prime number）。
 # （例：[2,3,4,5,6] → [2,3,5]）
 
+import math
+
 def a9_function(a):
     L99 = []
     for i in a:
-        if i > 1 and all(i % j != 0 for j in range(2, int(i ** 0.5) + 1)):  # 檢查是否為質數
+        if i <= 1:
+            continue
+        is_prime = True
+        for j in range(2, int(math.sqrt(i)) + 1):  # 只需要檢查到平方根
+            if i % j == 0:
+                is_prime = False
+                break  # 如果能整除，則不是質數
+        if is_prime:
             L99.append(i)
     print('Q9', L99)
 
 L9 = [2, 5, 9, 3, 6, 7, 11, 12, 17]
 a9_function(L9)
+
+# ----------------------------------------------------------------
+# 10. 數字倒數
+# 寫一個函式，輸入一個正整數 n，從 n 倒數到 1，每個數字都印出來。
+
+def a10_function(a):
+    print('Q10', end=" ")
+    for i in range(a,0,-1):
+        print(i, end=" ")  # 不換行，後面加空格
+a10_function(23)
+# range(start, stop, step)
+# start: 從哪裡開始（包含）
+# stop: 到哪裡停止（不包含 stop）
+# step: 每次走幾步，正數是遞增，負數是遞減
