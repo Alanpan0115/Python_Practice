@@ -242,3 +242,18 @@ def a17_function(a):
 a17_function('abc')      # Q17. bcd
 a17_function('xyzXYZ')   # Q17. yzaYZA
 a17_function('hello!')   # Q17. ifmmp!
+
+# ----------------------------------------------------------------  
+# 18. 檢查字串是否為數字
+# 寫一個函式，檢查字串是否完全由數字組成。
+# （例如："1234" 是數字；"abc123" 不是）
+def a18_function(a):
+    if a.isdigit():
+        print('Q18. 是')
+    else:
+        print('Q18. 不是')
+
+a18 = 'afa1f3a1f31f3a13a'    
+a18_function(a18)
+
+
