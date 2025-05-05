@@ -134,7 +134,125 @@ def a10_function(a):
     for i in range(a,0,-1):
         print(i, end=" ")  # 不換行，後面加空格
 a10_function(23)
+print()
 # range(start, stop, step)
 # start: 從哪裡開始（包含）
 # stop: 到哪裡停止（不包含 stop）
 # step: 每次走幾步，正數是遞增，負數是遞減
+
+# ----------------------------------------------------------------
+# 11. 擷取檔案副檔名
+# 輸入一個檔案名稱字串（例如 "report.docx"），回傳副檔名（例如 "docx"）。
+import os
+def a11_function(a):
+    name , ext = os.path.splitext(a)
+    if ext:
+        print('Q11. 附檔名為',ext[1:])
+    else:
+        print('Q11. 沒有附檔名')
+a11_filename='test.docx'    
+a11_function(a11_filename)
+# ----------------------------------------------------------------
+# 12. 將句子中的單字反轉
+# 輸入一個英文句子，把每個單字反轉，但單字順序不變。
+# 例如："Hello World" ➜ "olleH dlroW"
+def a12_function(a12_str):
+    # 使用 split() 以空白分割句子
+    words = a12_str.split() # 這邊會變成 [Hello , World , !!!]
+    result = []
+
+    for word in words:
+        reversed_word = word[::-1]  # 反轉單字
+        result.append(reversed_word)
+
+    print("Q12. 反轉結果：", " ".join(result))
+
+# 測試
+a12_str = "Hello World !!!"
+a12_function(a12_str)
+
+
+# ----------------------------------------------------------------
+# 13. 合併兩個列表並移除重複值
+# 給定兩個列表，合併它們並移除所有重複的元素，回傳新列表。
+def a13_function(a,b):
+    a13_addlist = a + b
+    a13_ans =[]
+    for i in a13_addlist:
+        if i in a13_ans:
+            continue
+        else:
+            a13_ans.append(i)
+    print('Q13.',a13_ans)
+a13_1 =['apple','banana','cake','dog']
+a13_2 =['address','black','cake','dog']
+a13_function(a13_1,a13_2)
+
+# ----------------------------------------------------------------
+# 14. 統計句子中的單字數量
+# 輸入一句英文句子，回傳每個單字出現的次數（使用字典）。
+def a14_function(a):
+    a14_word = a.split()
+    a14_list = {}
+    for i in a14_word:
+        if i.isdigit() in a14_list:
+            a14_list[i]+=1
+        else :
+            a14_list[i]=1
+    print('Q14.',a14_list)
+    
+a14_sentence = "My name is alan , I'm from Taipei Taiwan . I graduate form Cheng Young University. My job title is software engineer."
+a14_function(a14_sentence)
+
+# ----------------------------------------------------------------
+# 15. 印出等腰三角形星星圖案
+# 輸入一個整數 n，印出 n 層高的等腰星星三角形。
+def a15_function(a):
+    for i in range (0,a) :
+        for j in range(0,i):
+            print('*',end='')
+        print()
+a15_function(10)
+
+def a15_function_1(a):
+    for i in range (a,0,-1) :
+        for j in range(0,i):
+            print('*',end='')
+        print()
+a15_function_1(10)
+
+
+def a15_function_2(a):
+    for i in range (a,0,-1) :
+        spaces = a-i
+        print(' ' * spaces + '*' * i)
+a15_function_2(10)
+
+def a15_function_3(a):
+    for i in range (0,a) :
+        spaces = a-i
+        print(' ' * spaces + '*' * i)
+a15_function_3(10)
+# ----------------------------------------------------------------
+# 16. 計算階乘
+# 輸入一個正整數 n，計算 n!（例如：5! = 5×4×3×2×1）
+
+# ----------------------------------------------------------------
+# 17. 計算列表中的偶數總和
+# 輸入一個整數列表，計算所有偶數的加總。
+
+# ----------------------------------------------------------------
+# 18. 萃取清單中大於平均值的數字
+# 輸入一串整數，回傳高於平均值的所有數字（可用列表）。
+
+# ----------------------------------------------------------------
+
+# ----------------------------------------------------------------
+
+# ----------------------------------------------------------------
+
+# ----------------------------------------------------------------
+
+# ----------------------------------------------------------------
+
+# ----------------------------------------------------------------
