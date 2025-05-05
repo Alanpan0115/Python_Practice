@@ -207,6 +207,10 @@ a14_function(a14_sentence)
 # ----------------------------------------------------------------
 # 15. 印出等腰三角形星星圖案
 # 輸入一個整數 n，印出 n 層高的等腰星星三角形。
+
+# 靠左三角形
+print('Q15.')
+print('靠左三角形')
 def a15_function(a):
     for i in range (0,a) :
         for j in range(0,i):
@@ -214,6 +218,8 @@ def a15_function(a):
         print()
 a15_function(10)
 
+# 靠左顛倒三角形
+print('靠左顛倒三角形')
 def a15_function_1(a):
     for i in range (a,0,-1) :
         for j in range(0,i):
@@ -221,18 +227,30 @@ def a15_function_1(a):
         print()
 a15_function_1(10)
 
-
+# 靠右三角形
+print('靠右三角形')
 def a15_function_2(a):
     for i in range (a,0,-1) :
         spaces = a-i
         print(' ' * spaces + '*' * i)
 a15_function_2(10)
 
+# 靠右顛倒三角形
+print('靠右顛倒三角形')
 def a15_function_3(a):
     for i in range (0,a) :
         spaces = a-i
         print(' ' * spaces + '*' * i)
 a15_function_3(10)
+
+# 等腰三角形
+print('等腰三角形')
+def a15_function_4(a):
+    for i in range (0,a) :
+        spaces = a-i
+        stars = 2 * i - 1
+        print(' ' * spaces + '*' * stars)
+a15_function_4(10)
 # ----------------------------------------------------------------
 # 16. 計算階乘
 # 輸入一個正整數 n，計算 n!（例如：5! = 5×4×3×2×1）
