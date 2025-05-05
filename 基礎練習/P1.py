@@ -240,15 +240,15 @@ def a17_function(a):
     print('Q17.', result)
 
 a17_function('abc')      # Q17. bcd
-a17_function('xyzXYZ')   # Q17. yzaYZA
-a17_function('hello!')   # Q17. ifmmp!
+# a17_function('xyzXYZ')   # Q17. yzaYZA
+# a17_function('hello!')   # Q17. ifmmp!
 
 # ----------------------------------------------------------------  
 # 18. 檢查字串是否為數字
 # 寫一個函式，檢查字串是否完全由數字組成。
 # （例如："1234" 是數字；"abc123" 不是）
 def a18_function(a):
-    if a.isdigit():
+    if a.isdigit(): #a.isdigit()：這個方法會檢查字串是否完全由數字組成
         print('Q18. 是')
     else:
         print('Q18. 不是')
@@ -256,4 +256,35 @@ def a18_function(a):
 a18 = 'afa1f3a1f31f3a13a'    
 a18_function(a18)
 
+# ----------------------------------------------------------------  
+# 19. 找出列表中最常出現的數字
+# 寫一個函式，輸入一個整數列表，找出出現次數最多的數字，並回傳這個數字和它出現的次數。
 
+# def a19_function(a):
+#     a19_dict={}
+#     for i in a :
+#         if i in a19_dict:
+#             a19_dict[i]+=1
+#         else :
+#             a19_dict[i] = 1
+#     # 提示使用者輸入要查的數字
+#     num = int(input("Q19. 請輸入你要查詢的數字："))
+#      # 查詢該數字出現次數
+#     count = a19_dict.get(num, 0)
+#     print(f"數字 {num} 出現了 {count} 次")
+# a19 =[1,9,6,3,5,2,7,9,5,14,2,36,5,4]
+# a19_function(a19)
+
+# ----------------------------------------------------------------
+# 20. 移除字串中的母音字母
+# 寫一個函式，輸入一個英文句子，移除所有母音字母（a, e, i, o, u，大小寫都要考慮），並回傳結果。
+def a20_function(a):
+    result = ''
+    for tt in a:
+        # 轉小寫後判斷是否是母音
+        if tt.lower() not in ['a', 'e', 'i', 'o', 'u']:
+            result += tt
+    print("Q20. 結果為：", result)
+
+a20 = "Hello Python World"
+a20_function(a20)
