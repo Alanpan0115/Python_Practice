@@ -249,7 +249,83 @@ class C:
         if True :
             print("目前喜歡 "+question+" 共有 "+str(len(fruit_name))+" 人")
               
+    # 每種水果對應喜歡的人名清單（反轉字典）
+    def reverse_list(self):
+        reverse_f = list(self.favorites.items())
+        ans ={}
+        for name , fruit in reverse_f:
+            if fruit not in ans:
+                ans[fruit] = []
+            ans[fruit].append(name)
             
+        print(ans)
+        
+    # 判斷是否有多人喜歡的水果完全一樣
+    def same_fruit(self):
+        fr = list(self.favorites.items())
+        temp = {}
+        for name , fruit in fr:
+            if fruit not in temp:
+                temp[fruit] = []
+            temp[fruit].append(name)
+        for f , n in temp.items():
+            if len(n) >= 2:
+                print(f + '共有' + str(len(n)) +'人喜歡，分別是'+str(n))
+
+class D:
+       
+    def __init__(self):
+        # 初始信件資料，每封信是 sender: subject
+        self.mails = {
+            "Ann": "請假單 - 人資部",
+            "Ben": "專案報告 - 技術部",
+            "Charlie": "新品上市提案 - 行銷部",
+            "Daisy": "午餐表單 - 人資部",
+            "Eva": "產品優化報告 - 技術部",
+            "Alan": "新年活動構想 - 行銷部",
+            "CJ": "內部講座邀請 - 技術部"
+        }
+    
+    # 將信件依照部門分類
+    def mail_group(self):
+        group = list(self.mails.items())
+        mail_g ={}
+        
+        for k,v in group :
+            department = v.split(" - ")[1] #透過split去做分割，他這樣會變成兩段，取編號1的那段
+            title = v.split(" - ")[0]
+            if department not in mail_g:
+                mail_g[department] = []
+            mail_g[department].append(title)
+         
+        temp_mail_g = list(mail_g.items())
+        for k , v in temp_mail_g:
+            print('部門:'+k)
+            
+            for i in v:
+                print('信件標題:'+i)
+            
+            print('-----------------')
+        
+    # 找出來自技術部的信件
+    def search_tech(self):
+        st = list(self.mails.items())
+        for k , v in st:
+            if '技術部' in v:
+                print(k+' : '+v)
+                
+    # 統計每個部門的信件數量
+    def mail_num(self):
+        st = list(self.mails.items())
+        stt ={} # 部門 / 信件標題
+        for k , v in st:
+            dep = v.split(' - ')[1]
+            mail_title = v.split(' - ')[0]
+            if dep not in stt:
+                stt[dep] = []
+            stt[dep].append(mail_title)
+        for dep, titles in stt.items():
+            print(dep + ' : ' + str(len(titles)))
         
         
 if __name__ == "__main__":
@@ -263,4 +339,11 @@ if __name__ == "__main__":
 
     c = C()
     # c.cnt_fruit()
-    c.input_fruit()
+    # c.input_fruit()
+    # c.reverse_list()
+    # c.same_fruit()
+    
+    d = D()
+    # d.mail_group()
+    # d.search_tech()
+    d.mail_num()
