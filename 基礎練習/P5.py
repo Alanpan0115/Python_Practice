@@ -327,7 +327,111 @@ class D:
         for dep, titles in stt.items():
             print(dep + ' : ' + str(len(titles)))
         
+    # 請將每封信依照部門分類成新的字典格式
+    # 舉例:"人資部": ["Ann: 請假單", "Daisy: 午餐表單"],
+    def new_category(self):
+        nd = list(self.mails.items())
+        nc ={}
+        for k , v in nd :
+            mail_title= v.split(' - ')[0]
+            department= v.split(' - ')[1]
+            
+            if department not in nc:
+                nc[department]=[]
+            nc[department].append(k+' : '+mail_title)
+
+        print(nc)
+     
+class E:
+    def __init__(self):
+        self.students_class= {
+            "Amy": ["數學", "英文", "程式設計"],
+            "Ben": ["物理", "化學", "數學"],
+            "Cindy": ["歷史", "地理"],
+            "David": ["程式設計", "數學"],
+            "Eva": ["英文", "生物", "地理"]
+        }
+     
+    # 題目 1：列出所有學生的名字
+    def student_names(self):
+        name = list(self.students_class.items())
+        for k , v in name :
+            print(k)
+    
+    # 題目 2：查詢某位學生的課程
+    def search_class(self):
+        name = input('請輸入學生姓名:')
+        search = list(self.students_class.items())
+        for k , v in search:
+            if k == name:
+                print('學生:'+k+'目前課程為:'+str(v))
         
+    # 題目 3：新增學生或新增課程
+    def add_course(self):
+        name = input('請輸入學生姓名:')
+        search = list(self.students_class.items())
+        for k , v in search:
+            if k == name:
+                print('學生:'+k+'目前課程為:'+str(v))
+                question = input('請問有需要新增課程?(請輸入Y or N)')
+                if question =='Y':
+                    add_class_num = int(input('請輸入要新增幾堂課程 :'))
+                    for i in range(0,add_class_num) :
+                        add_class = input('請輸入要新增的課程 : ')
+                        self.students_class[k].append(add_class)
+                    print('課程新增結束~')
+                    print('學生:'+k+'目前課程為:'+str(v))
+                if question =='N':
+                    print('結束')
+                    
+            if name not in self.search_class:
+                ask = input('目前查無此學生，請問是否新增 '+name+' ?(請輸入Y or N)')
+                if ask =='Y':
+                    self.students_class[name]=[]
+                    print('已新增'+name)
+                    question = input('請問有需要新增課程?(請輸入Y or N)')
+                    if question =='Y':
+                        add_class_num = int(input('請輸入要新增幾堂課程 :'))
+                        for i in range(0,add_class_num) :
+                            add_class = input('請輸入要新增的課程 : ')
+                            self.students_class[name].append(add_class)
+                        print('課程新增結束~')
+                        print('學生:'+name+'目前課程為:'+str(self.students_class[name])) 
+                    if question =='N':
+                        print('結束')
+                        break      
+                    
+                if ask =='N':
+                    print('結束')
+    
+    # 題目 4：統計某門課有幾個學生修
+    def count_course(self):
+        cc = list(self.students_class.items())
+        course = input('請輸入要查詢的課程:')
+        num = []
+        cnt = 0
+        for k , v in cc:
+            if course in v:
+                num.append(k)
+                cnt=cnt+1
+        print('目前共有'+str(cnt)+'人參加'+course+'課程，參加人員為'+str(num))    
+            
+    # 題目 5：列出每門課有哪些學生修
+    def group_by_course(self):
+        cc = list(self.students_class.items())
+        cc2 ={}
+        for k, v in cc:
+            for i in v:
+                if i not in cc2:
+                    cc2[i] = []
+                cc2[i].append(k)
+        
+        for k, v in cc2.items():
+            print('科目:'+k)
+            for i in v :
+                print('學生:'+i) 
+            print('------------------')
+    
 if __name__ == "__main__":
     a = A()
     
@@ -346,4 +450,12 @@ if __name__ == "__main__":
     d = D()
     # d.mail_group()
     # d.search_tech()
-    d.mail_num()
+    # d.mail_num()
+    # d.new_category()
+    
+    e = E()
+    # e.student_names()
+    # e.search_class()
+    # e.add_course()
+    # e.count_course()
+    e.group_by_course()
